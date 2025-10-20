@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Ecommerce Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="Build-Ecommerce-Website-With-HTML-CSS-JavaScript-main/img/logo1.png" alt="Logo">
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="shop">
+        <div class="container">
+            <h1>Shop Our Products</h1>
+            <div class="categories">
+                <button class="category-btn active" data-category="all">All</button>
+                <button class="category-btn" data-category="clothes">Clothes</button>
+                <button class="category-btn" data-category="shoes">Shoes</button>
+                <button class="category-btn" data-category="watches">Watches</button>
+            </div>
+            <div class="product-grid" id="product-grid">
+                <!-- Clothes -->
+                <div class="product-card" data-category="clothes">
+                    <img src="Build-Ecommerce-Website-With-HTML-CSS-JavaScript-main/img/clothes/1.jpg" alt="Clothes 1">
+                    <h3>Clothes 1</h3>
+                    <p>$49.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="clothes">
+                    <img src="Build-Ecommerce-Website-With-HTML-CSS-JavaScript-main/img/clothes/2.jpg" alt="Clothes 2">
+                    <h3>Clothes 2</h3>
+                    <p>$39.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="clothes">
+                    <img src="Build-Ecommerce-Website-With-HTML-CSS-JavaScript-main/img/clothes/3.jpg" alt="Clothes 3">
+                    <h3>Clothes 3</h3>
+                    <p>$59.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="clothes">
+                    <img src="Build-Ecommerce-Website-With-HTML-CSS-JavaScript-main/img/clothes/4.jpg" alt="Clothes 4">
+                    <h3>Clothes 4</h3>
+                    <p>$69.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <!-- Shoes -->
+                <div class="product-card" data-category="shoes">
+                    <img src="Build-Ecommerce-Website-With-HTML-CSS-JavaScript-main/img/shoes/1.jpg" alt="Shoes 1">
+                    <h3>Shoes 1</h3>
+                    <p>$79.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="shoes">
+                    <img src="Build-Ecommerce-Website-With-HTML-CSS-JavaScript-main/img/shoes/2.jpg" alt="Shoes 2">
+                    <h3>Shoes 2</h3>
+                    <p>$89.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="shoes">
+                    <img src="Build-Ecommerce-Website-With-HTML-CSS-JavaScript-main/img/shoes/3.jpg" alt="Shoes 3">
+                    <h3>Shoes 3</h3>
+                    <p>$99.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="shoes">
+                    <img src="Build-Ecommerce-Website-With-HTML-CSS-JavaScript-main/img/shoes/4.jpg" alt="Shoes 4">
+                    <h3>Shoes 4</h3>
+                    <p>$109.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <!-- Watches -->
+                <div class="product-card" data-category="watches">
+                    <img src="Build-Ecommerce-Website-With-HTML-CSS-JavaScript-main/img/watches/1.jpg" alt="Watch 1">
+                    <h3>Watch 1</h3>
+                    <p>$199.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="watches">
+                    <img src="Build-Ecommerce-Website-With-HTML-CSS-JavaScript-main/img/watches/2.jpg" alt="Watch 2">
+                    <h3>Watch 2</h3>
+                    <p>$249.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="watches">
+                    <img src="Build-Ecommerce-Website-With-HTML-CSS-JavaScript-main/img/watches/3.jpg" alt="Watch 3">
+                    <h3>Watch 3</h3>
+                    <p>$299.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="watches">
+                    <img src="Build-Ecommerce-Website-With-HTML-CSS-JavaScript-main/img/watches/4.jpg" alt="Watch 4">
+                    <h3>Watch 4</h3>
+                    <p>$349.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <!-- More products from shop folder -->
+                <div class="product-card" data-category="all">
+                    <img src="Build-Ecommerce-Website-With-HTML-CSS-JavaScript-main/img/shop/1.jpg" alt="Shop 1">
+                    <h3>Shop Item 1</h3>
+                    <p>$29.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="all">
+                    <img src="Build-Ecommerce-Website-With-HTML-CSS-JavaScript-main/img/shop/2.jpg" alt="Shop 2">
+                    <h3>Shop Item 2</h3>
+                    <p>$39.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="all">
+                    <img src="Build-Ecommerce-Website-With-HTML-CSS-JavaScript-main/img/shop/3.jpg" alt="Shop 3">
+                    <h3>Shop Item 3</h3>
+                    <p>$49.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product-card" data-category="all">
+                    <img src="Build-Ecommerce-Website-With-HTML-CSS-JavaScript-main/img/shop/4.jpg" alt="Shop 4">
+                    <h3>Shop Item 4</h3>
+                    <p>$59.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>We offer the best products at affordable prices.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: info@store.com</p>
+                    <p>Phone: +123 456 7890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Ecommerce Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
