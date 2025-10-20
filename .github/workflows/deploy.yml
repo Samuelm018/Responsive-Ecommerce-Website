@@ -18,19 +18,25 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20' # change if needed
+          node-version: '20' 
+      
+      # Set the correct working directory path as a variable for cleaner code
+      # Based on your file structure, the correct directory is:
+      - name: Define Project Directory
+        id: set_dir
+        run: echo "PROJECT_DIR=Build-Ecommerce-Website-With-HTML-CSS-JavaScript-main" >> $GITHUB_ENV
 
       # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install
-        # FIX: Set the working directory to find package.json
-        working-directory: Responsive-Ecommerce-Website 
+        # FIX: Using the correct, fully-qualified subdirectory path
+        working-directory: ${{ env.PROJECT_DIR }}
 
       # Step 4: Build project 
       - name: Build project
-        run: npm run build  # adjust if your build command is different
-        # FIX: Set the working directory for the build command
-        working-directory: Responsive-Ecommerce-Website 
+        run: npm run build
+        # FIX: Using the correct, fully-qualified subdirectory path
+        working-directory: ${{ env.PROJECT_DIR }}
 
       # Step 5: Trigger Render deployment
       - name: Trigger Render deployment
