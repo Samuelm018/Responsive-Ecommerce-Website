@@ -14,7 +14,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Step 2: Setup Node.js (only if your project uses Node/React)
+      # Step 2: Setup Node.js 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -23,16 +23,20 @@ jobs:
       # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install
+        # FIX: Set the working directory to find package.json
+        working-directory: Responsive-Ecommerce-Website 
 
-      # Step 4: Build project (if static site or React app)
+      # Step 4: Build project 
       - name: Build project
         run: npm run build  # adjust if your build command is different
+        # FIX: Set the working directory for the build command
+        working-directory: Responsive-Ecommerce-Website 
 
       # Step 5: Trigger Render deployment
       - name: Trigger Render deployment
         env:
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
-          SERVICE_ID: srv-d3r1qdripnbc73assl70   # Replace with your Render Service ID
+          SERVICE_ID: srv-d3r1qdripnbc73assl70 # Replace with your Render Service ID
         run: |
           echo "Triggering Render deployment..."
           curl -X POST "https://api.render.com/deploy/srv-${SERVICE_ID}" \
