@@ -14,35 +14,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Step 2: Setup Node.js 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20' 
-      
-      # Set the correct working directory path as a variable for cleaner code
-      # Based on your file structure, the correct directory is:
-      - name: Define Project Directory
-        id: set_dir
-        run: echo "PROJECT_DIR=Build-Ecommerce-Website-With-HTML-CSS-JavaScript-main" >> $GITHUB_ENV
-
-      # Step 3: Install dependencies
-      - name: Install dependencies
-        run: npm install
-        # FIX: Using the correct, fully-qualified subdirectory path
-        working-directory: ${{ env.PROJECT_DIR }}
-
-      # Step 4: Build project 
-      - name: Build project
-        run: npm run build
-        # FIX: Using the correct, fully-qualified subdirectory path
-        working-directory: ${{ env.PROJECT_DIR }}
-
-      # Step 5: Trigger Render deployment
+      # Step 2: Trigger Render deployment
+      # This tells Render to pull the latest code from your repository.
       - name: Trigger Render deployment
         env:
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
-          SERVICE_ID: srv-d3r1qdripnbc73assl70 # Replace with your Render Service ID
+          SERVICE_ID: srv-d3r1qdripnbc73assl70 # Your Render Service ID
         run: |
           echo "Triggering Render deployment..."
           curl -X POST "https://api.render.com/deploy/srv-${SERVICE_ID}" \
