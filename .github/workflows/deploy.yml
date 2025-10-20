@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy to Render
 
 on:
   push:
@@ -6,37 +6,35 @@ on:
       - main
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      # Step 1: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      # Step 2: Setup Node.js (only if your project uses Node/React)
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          path: '.'
+          node-version: '20' # change if needed
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Build project (if static site or React app)
+      - name: Build project
+        run: npm run build  # adjust if your build command is different
+
+      # Step 5: Trigger Render deployment
+      - name: Trigger Render deployment
+        env:
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+          SERVICE_ID: srv-d3r1qdripnbc73assl70   # Replace with your Render Service ID
+        run: |
+          echo "Triggering Render deployment..."
+          curl -X POST "https://api.render.com/deploy/srv-${SERVICE_ID}" \
+          -H "Authorization: Bearer $RENDER_API_KEY" \
+          -H "Accept: application/json"
