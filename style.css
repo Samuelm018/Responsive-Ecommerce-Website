@@ -21,7 +21,7 @@ body {
 .btn {
     display: inline-block;
     padding: 12px 24px;
-    background: linear-gradient(45deg, #ff0000, #000000);
+    background: linear-gradient(45deg,yellow, #000000);
     color: white;
     text-decoration: none;
     border-radius: 25px;
